@@ -1,0 +1,16 @@
+	//Map W & D to move left and right
+	//Stop movement when bucket hits end of screen
+
+	//Flip gun depending on direction bucket is moving
+	//Angle gun towards mouse cursor 
+    //Shoot water at mouse cursor when user clicks mouse
+
+	//Randomize slimed kittens dropping from top of screen
+	//Water and slime on kitten disappear when they collide
+Clean kitten disappears when collides with bucket
+
+	//Add 6 hearts dynamically 
+	//Lose two hearts if slimed kittens touches bottom slime/bucket
+Lose one heart if clean kitten is not caught
+Add one point to score every time a clean kitten is caught
+

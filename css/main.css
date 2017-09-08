@@ -1,0 +1,60 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+    background-color: #081419;
+    padding:0;
+    margin:0;
+    overflow: hidden;
+
+}
+
+#phaser-canvas{
+    margin: auto;
+    max-width: 100%;
+}
+
+canvas{
+	margin: auto;
+}
+
+ .wrapper{
+	margin: auto;
+	margin-top: 50px;
+	   font-family: 'Raleway', sans-serif;
+    border: dotted 2px #32DF67;
+    margin: 25px;
+    padding-bottom: 60px;
+    padding-top: 60px;
+ }
+
+ input{
+ 	border-radius: 3px;
+ 	width: 150px;
+ 	height: 50px;
+ 	background-color: rgba(255,255,255, .5);
+ 	font-family: 'Raleway', sans-serif;
+ 	font-size: 1.5rem;
+ 	color: white;
+ }
+
+ li{
+ 	padding: 15px;
+	list-style-type: none;
+ }
+
+ form{
+ 	text-align: center;
+ 	text-decoration: none;
+ }
+
+ .cat{
+ 	width: 100%;
+ 	display: flex;
+ 	justify-content: center;
+ }
+
+ ul{
+ 	padding-left: 0;
+ }
