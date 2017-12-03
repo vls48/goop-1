@@ -17,6 +17,7 @@ gameObj.Play = function (game) {
     var nextFire;
     var MAX_CATS;
     var spBottom;
+    //var lives;
 };
     
 
@@ -30,6 +31,14 @@ gameObj.Play.prototype = {
 
       fireRate = 100;
       nextFire = 0;
+
+      meowObj = this.add.audio('meow');    
+      music = this.add.audio('chip');
+
+      music.play();
+    // being that mps3 files take time to decode we need to check
+    //soundsLoadedFlag = false; 
+    //this.sound.setDecodedCallback([meowObj], this.collisionHandler, this);
     
 
 //GRAPHICS
@@ -62,7 +71,7 @@ gameObj.Play.prototype = {
       bullets.enableBody = true;
       bullets.physicsBodyType = Phaser.Physics.ARCADE;
 
-      bullets.createMultiple(50, 'bullet');
+      bullets.createMultiple(8, 'bullet');
       bullets.setAll('checkWorldBounds', true);
       bullets.setAll('outOfBoundsKill', true);
       
@@ -83,7 +92,7 @@ gameObj.Play.prototype = {
 
 
 
-        var spCounter = this.add.sprite( 620, 685, 'counter');
+        var spCounter = this.add.sprite(620, 685, 'counter');
 
       // add text stylings!
          var generalStyle = {
@@ -116,7 +125,7 @@ gameObj.Play.prototype = {
 
       //Add text
         var scoreStr = '0';
-        var timeStr = '1:20';
+        var timeStr = '2:00';
 
         txScore = this.add.text(670, 700, 'x' + scoreStr, generalStyle);
         txTime = this.add.text(50, 684, timeStr, generalStyle2);
@@ -125,12 +134,12 @@ gameObj.Play.prototype = {
         var txtRescue = this.add.text(600, 665, 'RESCUED', generalStyle);
 
       //The numbers given in parameters are the indexes of the frames, in this order: OVER, OUT, DOWN
-        var btWin = this.add.button(500, 550, 'winbut', this.winnerFun, this, 1, 0, 2);
-        var btLose = this.add.button(610, 550, 'losebut', this.loserFun, this, 1, 0, 2);
-        var btPoints = this.add.button(310,550, 'pointsbut', this.kill, this, 1, 0, 2);
+        //var btWin = this.add.button(500, 550, 'winbut', this.winnerFun, this, 1, 0, 2);
+        //var btLose = this.add.button(610, 550, 'losebut', this.loserFun, this, 1, 0, 2);
+       // var btPoints = this.add.button(310,550, 'pointsbut', this.kill, this, 1, 0, 2);
 
        //Setup timer
-        timerSeconds = 80;
+        timerSeconds = 120;
 
       //Create timer object
         timerObj = this.game.time.create(false);
@@ -166,7 +175,7 @@ gameObj.Play.prototype = {
   },
   pointsFun: function () {
     console.log('pointsFun called');
-    gameObj.gScore+= 10;
+    gameObj.gScore+= 1;
     txScore.text = 'x' + gameObj.gScore;
 
   },
@@ -184,18 +193,16 @@ gameObj.Play.prototype = {
     txTime.text = gameObj.gTime;
     } else {
     //time is up
-    if(gameObj.gScore > 100){
         this.state.start('Winner');
-    }else {
-        this.state.start('Loser');
-          }
+    
+         
     }
   },
 
  
   update: function () {
-
-    console.log(this.physics.arcade.angleToPointer(spBucket));
+    console.log(this.lives.length);
+    //console.log(this.physics.arcade.angleToPointer(spBucket));
     //spGun.rotation = this.physics.arcade.angleToPointer(spBucket) + 1.57;
     
     spShoot.rotation = this.physics.arcade.angleToPointer(spBucket) + 1.57;
@@ -272,12 +279,14 @@ gameObj.Play.prototype = {
     console.log('faef');
     bullet.kill();
     enemy.kill();
+    this.pointsFun();
+    meowObj.play();
   },
   groundHandler: function(spBottom, enemy){
     enemy.kill();
     console.log('touched');
     this.lives.getTop().destroy();
-    this.lives.getTop().destroy();
+    //this.lives.getTop().destroy();
     if(this.lives.length == 0){
       this.loserFun();
     }
@@ -286,7 +295,7 @@ gameObj.Play.prototype = {
     enemy.kill();
     console.log('touched');
     this.lives.getTop().destroy();
-    this.lives.getTop().destroy();
+    //this.lives.getTop().destroy();
     if(this.lives.length == 0){
       this.loserFun();
     }

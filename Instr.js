@@ -43,9 +43,9 @@ gameObj.Instr.prototype = {
         };
 
         // actual text 
-        var txtMove = this.add.text(this.world.centerX - 130, 310, 'Move your boat to catch the clean kittens', generalStyle);
+        var txtMove = this.add.text(this.world.centerX - 130, 310, 'Move your boat left and right', generalStyle);
         var txtPoint = this.add.text(this.world.centerX - 130, 115, 'Point and click to shoot water at the kitten slimeballs', generalStyle);
-        var txtLives = this.add.text(160, 458, 'Lose one life by dropping a clean kitten and two for dropping a slimey kitten', generalStyle2);
+        var txtLives = this.add.text(160, 458, 'Lose a life by getting hit by a kitten or letting one fall in the slime', generalStyle2);
         var txtTry = this.add.text(190, 570, 'See if you can survive the entire time!', generalStyle3);
 
         // add buttons!

@@ -36,6 +36,7 @@ gameObj.Preloader.prototype = {
 
             //load sprite sheets
             this.load.spritesheet('playagain', 'assets/playagain.png', 223, 90);
+            this.load.image('kat', 'assets/slimecatss.png', 63, 86, 2);
 
         //PLAY
          	//load graphics
@@ -69,6 +70,9 @@ gameObj.Preloader.prototype = {
 
             //load sprite sheets
             this.load.spritesheet('go', 'assets/go.png', 223, 90);
+
+            this.load.audio('meow', 'assets/meow.mp3');
+            this.load.audio('chip', 'assets/chips.mp3');
 
 	},
 	create: function () {
